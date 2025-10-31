@@ -48,5 +48,5 @@ jobs:
     - name: "Installing dependencies"
       run: npm i #download all necessary dependencies
     - name: "Running test cases"
-      run: npm run tests #run tests
+      run: npm test #run tests
 
