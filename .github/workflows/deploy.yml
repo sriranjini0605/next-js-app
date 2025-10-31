@@ -13,9 +13,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4 #by default the branch will be main and this tells github to checkout from this branch to the current branch
       - run: docker build . -t ranjinivasista/next-js-app #building docker image
-      - name: Log in to Docker Hub
-        uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+      - run: echo "${{secrets.DOCKER_HUB_PASSWORD}}" | docker login -u ${{secrets.DOCKER_HUB_USERNAME}} --password-stdin #deploying it to docker hub
       - run: docker push ranjinivasista/next-js-app:latest
